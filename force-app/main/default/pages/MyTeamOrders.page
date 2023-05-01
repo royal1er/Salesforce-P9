@@ -1,0 +1,18 @@
+<apex:page controller="TeamOrdersController">
+    <apex:pageBlock title="Total Orders">
+        <apex:outputText value="{!SumOrders}" />
+    </apex:pageBlock>
+
+    <apex:pageBlock title="Orders by Sales Rep">
+        <apex:dataTable value="{!OrdersBySalesRep}" var="item" styleClass="dataTable" rowClasses="odd,even">
+            <apex:column>
+                <apex:facet name="header">Sales Rep</apex:facet>
+                <apex:outputText value="{!item.SalesRep}" />
+            </apex:column>
+            <apex:column>
+                <apex:facet name="header">Total Amount</apex:facet>
+                <apex:outputText value="{!item.Total}" />
+            </apex:column>
+        </apex:dataTable>
+    </apex:pageBlock>
+</apex:page>
