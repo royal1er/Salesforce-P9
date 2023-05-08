@@ -1,6 +1,5 @@
 public class AccountService {
     public static void updateAccountRevenue(List<Account> scope) {
-        //List<Account> accountsToUpdate = [SELECT Id, Chiffre_d_affaire__c, (SELECT Id, TotalAmount FROM Orders) FROM Account WHERE Id IN :accountIds];
         Map<Id,AggregateResult> totalSumOrder = new Map<Id,AggregateResult>([
             SELECT accountId, SUM(TotalAmount) total 
             FROM Order 
