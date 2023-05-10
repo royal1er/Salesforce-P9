@@ -3,11 +3,8 @@ private class TestUpdateAccountRevenueBatch {
     // Méthode de configuration pour les données de test
     @TestSetup
     static void setupTestData() {
-        Account testAccount = new Account(Name = 'Test Account');
-        insert testAccount;
-
-        Order testOrder = new Order(AccountId = testAccount.Id, Status = 'Ordered', TotalAmount = 200, ShipmentCost__c = 50);
-        insert testOrder;
+        Account testAccount = TestDataFactory.createTestAccount('Test Account');
+        Order testOrder = TestDataFactory.createTestOrder(testAccount.Id, 'Ordered', 200, 50);
     }
 
     @isTest
